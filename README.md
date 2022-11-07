@@ -5,6 +5,8 @@
 - Clicking a habit in the Habit List menu should provide more details
 - Calendar should be able to add one off events as well
 - clicking on the event in the calendar should provide more details
+## Trello Board
+[TrelloBoard](https://trello.com/b/0XVRL4xe/habit-calendar)
 ## ERD
 ![habitCalendarERD](/public/images/habitCalendarERD.png)
 ## Wireframe
