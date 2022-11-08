@@ -8,7 +8,7 @@
 ## Trello Board
 [TrelloBoard](https://trello.com/b/0XVRL4xe/habit-calendar)
 ## ERD
-![habitCalendarERD](/public/images/habitCalendarERD.png)
+![habitCalendarERD](/public/images/updateHabitERD.png)
 ## Wireframe
 ![HabitWireFrame](/public/images/fullWireframe.png)
 ![newHabitFrame](/public/images/newHabit.png)
