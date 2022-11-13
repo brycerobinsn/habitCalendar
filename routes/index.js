@@ -1,35 +1,46 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-const passport = require('passport');
+var passport = require("passport");
+
+// import private route middleware
+const isLoggedIn = require("../config/auth");
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get("/", function (req, res, next) {
+  res.render("index", { title: "Home / Public Page" });
 });
-//google OAuth Login Route
+
+router.get("/private", isLoggedIn, function (req, res) {
+  res.render("private", { title: "Private Page" });
+});
+
+// OAuth Routes
+
+// Go to Google OAuth Login Menu
 router.get(
-  '/auth/google',
-  passport.authenticate('google', {
-    scope: ['profile', 'email'],
-    prompt: 'select_account',
+  "/auth/google",
+  passport.authenticate("google", {
+    scope: ["profile", "email"],
+    prompt: "select_account",
   })
 );
 
-//GoogleOAuth callback route
+// OAuth Callback Route to redirect back to our app after successfully logging in
 router.get(
-  '/ouath2callback',passport.authenticate('google', {
-    successRedirect: '/calendar',
-    failureRedirect: '/auth/google'
+  "/oauth2callback",
+  passport.authenticate("google", {
+    successRedirect: "/",
+    failureRedirect: "/",
   })
-)
+);
 
 // OAuth Logout Route
-router.get('/logout', function (req,res){
-  req.logout(function(err){
-    if (err){
+router.get("/logout", function (req, res) {
+  req.logout(function (err) {
+    if (err) {
       return next(err);
     }
-    res.redirect('/calendar');
+    res.redirect("/");
   });
 });
 
