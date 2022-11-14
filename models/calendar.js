@@ -14,24 +14,6 @@ const dateString = firstDayofMonth.toLocaleDateString('en-us', {
     day: 'numeric'
 })
 
-// const eventSchema = new Schema (
-//     {
-//         title:{
-//             type: String,
-//             required: true
-//         },
-//         details: String,
-//         Location: String,
-//         startTime:{
-//             type: Date,
-//             required: true
-//         },
-//         endTime:{
-//             type: Date,
-            
-//         }         
-//     }
-// )
 const calendarSchema = new Schema (
     {
         title: {

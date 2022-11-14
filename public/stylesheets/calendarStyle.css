@@ -80,9 +80,34 @@ body > nav {
     text-align: center;
     margin: 20px;
   }
-  ul{
-    display: flex;
+  .badge {
+    background-color: #B8C0C2;
+    padding: .5rem;
+    margin: 1rem;
+    border-radius: .3rem;
+    font-size: .8rem;
+    text-align: center;
   }
-  li{
+  .login {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 34px;
+  }
+  
+  .login img {
+    height: 30px;
+  }
+  .habitBtn {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+  }
+  .habitBtn:active {
+    background-color: red;
+    color: green;
+  }
+  .habitBtn:focus {
+    background-color: red;
+    color: green;
   }
