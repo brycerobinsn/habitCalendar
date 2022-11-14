@@ -38,7 +38,7 @@
                 <% if (i <= calendars.paddingDays || i == 0) { %>
                  <div class="date"></div> 
 
-                <% } else if(i == calendars.currentDay){ %>
+                <% } else if(i == calendars.currentDay + calendars.paddingDays){ %>
                  
                  <div class="date, today" ><%- i - calendars.paddingDays %><br>
                     <% habits.forEach(function(h){ %>
