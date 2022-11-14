@@ -45,5 +45,12 @@
     <a href="/calendars/new">New Calendar</a>
     <button>Habit</button>
     <button>Event</button>
+    <ul>
+        <% calendars.forEach(function(c){ %>
+            <li>
+                <a href="/calendars/<%= c.id %>"><%= c.title %> </a>
+            </li>
+        <% }) %> 
+    </ul>
 </body>
 </html>
