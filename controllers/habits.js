@@ -1,11 +1,33 @@
-const Habit = require('../models/calendar')
+const habit = require('../models/habit');
+const Habit = require('../models/habit')
 
 module.exports = {
     index,
     show,
     new: newHabit,
     create,
-    delete: deleteHabit
+    delete: deleteHabit,
+    edit,
+    update
+}
+function update(req, res){
+    // req.body.id = req.params.id; 
+    req.body.done = req.body.done === 'on'
+    console.log(`req.body`)
+    Habit.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, habit) => {
+        console.log(`updated to ${req.body.title}`)
+        if(err) return res.redirect('/habits')
+        res.redirect('/habits')
+    })
+}
+function edit(req, res){
+    Habit.findById(req.params.id)
+        .exec(function(err, habit) {
+            console.log(habit)
+            res.render('habits/edit', {title: habit.title , habit
+        })
+        
+    })
 }
 function deleteHabit(req, res) {
     Habit.findByIdAndDelete(req.params.id, (err, habit) => {
@@ -40,7 +62,4 @@ function show (req, res) {
         })
         
     })
-    // res.render('/habits/show', {
-    //     habit: Habit.getOne(req.params.id),
-    //     habitNum: Habit.getAll().findIndex(habit => habit.id === parseInt(req.params.id)) + 1
 }

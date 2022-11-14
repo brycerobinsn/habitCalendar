@@ -13,6 +13,7 @@
     <h3>Current Streak: <%= habit.streak %> </h3>
     <form action="/habits/<%= habit.id %>?_method=DELETE" id ="delete-form" method="POST">
         <button type="submit">Remove Habit</button>
-        </form>
+    </form>
+    <a href="/habits/<%= habit.id %>/edit">Edit Habit</a>
 </body>
 </html>
