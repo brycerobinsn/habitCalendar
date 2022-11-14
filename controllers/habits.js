@@ -10,7 +10,6 @@ module.exports = {
     update
 }
 function update(req, res){
-    // req.body.id = req.params.id; 
     req.body.done = req.body.done === 'on'
     Habit.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, habit) => {
         console.log(`updated to ${req.body.title}`)
