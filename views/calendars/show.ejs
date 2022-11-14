@@ -35,22 +35,17 @@
         </div>
         <div id="dates">
             <% for( let i = 1; i < calendars.daysInMonth + calendars.paddingDays; i++ ) { %>
-                <% if (i < calendars.paddingDays || i == 0) { %>
+                <% if (i <= calendars.paddingDays || i == 0) { %>
                  <div class="date"></div> 
-                <% } %>
-                 <div class="date"><%- i - 1%></div>
-            <% } %>
+
+                <% } else if(i == calendars.currentDay){ %>
+                 
+                 <div class="date, today" ><%- i - calendars.paddingDays %></div>
+             <% } else { %>
+                <div class="date"><%- i - calendars.paddingDays %></div>
+            <% }} %>
         </div>
     </div>
     <a href="/calendars/new">New Calendar</a>
-    <button>Habit</button>
-    <button>Event</button>
-    <ul>
-        <% calendars.forEach(function(c){ %>
-            <li>
-                <a href="/calendars/<%= c.id %>"><%= c.title %> </a>
-            </li>
-        <% }) %> 
-    </ul>
 </body>
 </html>

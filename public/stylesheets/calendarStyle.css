@@ -61,6 +61,15 @@ body > nav {
     font-size: 1.2rem;
     padding: 10px 0;
   }
+  .today {
+    border: 3px solid red;
+    border-radius: 15%;
+    text-align: right;
+    padding: 10px;
+  }
+  .today:hover {
+    border: 3px solid purple;
+  }
   .date:hover{
     border:3px solid purple;
   }
@@ -72,5 +81,8 @@ body > nav {
     margin: 20px;
   }
   ul{
+    display: flex;
+  }
+  li{
     display: flex;
   }
