@@ -17,9 +17,15 @@
             <tbody>
                 <% habits.forEach(function(h){ %>
                     <tr>
-                        <td><%= h.title %> </td>
+                        <td><a href="/habits/<%= h.id %>"><%= h.title %></a>
+                        </td>
                         <td><%= h.done %> </td>
                         <td><%= h.streak %> </td>
+                        <td>
+                            <form action="/habits/<%= h.id %>?_method=DELETE" id ="delete-form" method="POST">
+                            <button type="submit">Remove Habit</button>
+                            </form>
+                        </td>
                     </tr>
                <% }); %>  
             </tbody>

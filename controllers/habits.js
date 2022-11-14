@@ -8,8 +8,12 @@ module.exports = {
     delete: deleteHabit
 }
 function deleteHabit(req, res) {
-    Habit.deleteOne(req.params.id)
-    res.redirect('/habits')
+    Habit.findByIdAndDelete(req.params.id, (err, habit) => {
+        if(!err){
+            console.log(habit)
+            res.redirect('/habits')
+        }
+    })
 }
 function create(req, res){
     const habit = new Habit(req.body)
@@ -29,8 +33,14 @@ function index(req, res){
 }
 
 function show (req, res) {
-    res.render('/habits/show', {
-        habit: Habit.getOne(req.params.id),
-        habitNum: Habit.getAll().findIndex(habit => habit.id === parseInt(req.params.id)) + 1
+    Habit.findById(req.params.id)
+        .exec(function(err, habit) {
+            console.log(habit)
+            res.render('habits/show', {title: 'Habit', habit
+        })
+        
     })
+    // res.render('/habits/show', {
+    //     habit: Habit.getOne(req.params.id),
+    //     habitNum: Habit.getAll().findIndex(habit => habit.id === parseInt(req.params.id)) + 1
 }
