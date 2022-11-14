@@ -1,4 +1,5 @@
 const Calendar = require('../models/calendar')
+const Habit = require('../models/habit')
 
 module.exports = {
     index,
@@ -17,7 +18,11 @@ function show(req, res){
     Calendar.findById(req.params.id)
         .populate('user')
         .exec(function(err, calendars){
-            res.render('calendars/show', {title: 'Calendar', calendars})
+            Habit
+                .find({_id: {$nin: calendars.habits}})
+                .exec(function(err, habits){
+                    res.render('calendars/show', {title: 'Calendar', calendars, habits})
+                })
         })
 }
 function newCalendar(req, res) {
