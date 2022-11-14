@@ -14,8 +14,9 @@ body{
   .date {
     justify-content: space-evenly;
     text-align: right;
-    border: 3px solid black;
+    border: 3px solid transparent;
     height: 100px;
+    padding: 10px;
   }
   #dates {
     display: grid;
@@ -25,8 +26,12 @@ body{
   }
   .day {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     text-align: center;
     width: 100%;
-    border: 1px solid red;
+    font-size: 1.2rem;
+    padding: 10px 0;
+  }
+  .date:hover{
+    border:3px solid purple;
   }
