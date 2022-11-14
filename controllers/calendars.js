@@ -29,6 +29,6 @@ function create(req, res){
     console.log(calendar)
     calendar.save(function(err){
         if (err) return res.redirect('/');
-        res.redirect('/calendars')
+        res.redirect(`/calendars/${calendar._id}`)
     })
 }

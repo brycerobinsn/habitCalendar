@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/calendarStyle.css' />
+    <title><%= title %> </title>
+</head>
+<body>
+    <nav>
+        <% if (user) { %>
+            <a href="/habits" <%- title === 'All Habits' ? 'class="active"' : '' %>>ALL HABITS</a>
+            <a href="/habits/new"	<%- title === 'Add Habit' ? 'class="active"' : '' %>>
+            ADD HABIT</a>
+            <a href="/calendars" <%- title === 'Calendar' ? 'class="active"' : '' %>>CALENDAR</a>
+            <a href="/logout">LOG OUT</a>
+        <% } else { %>
+            <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+        <% } %>
+      </nav>
+    <h1>Calendar <%= calendars.title %> </h1>
+    <div class="container">
+        <div class="header">
+            <div class="currentMonth"><%= calendars.currentMonth %> </div>
+        </div>
+        <div class="day">
+            <div class="day">Sunday</div>
+            <div class="day">Monday</div>
+            <div class="day">Tuesday</div>
+            <div class="day">Wednesday</div>
+            <div class="day">Thursday</div>
+            <div class="day">Friday</div>
+            <div class="day">Saturday</div>
+        </div>
+        <div id="dates">
+            <% for( let i = 1; i < calendars.daysInMonth + calendars.paddingDays; i++ ) { %>
+                <% if (i < calendars.paddingDays || i == 0) { %>
+                 <div class="date"></div> 
+                <% } %>
+                 <div class="date"><%- i - 1%></div>
+            <% } %>
+        </div>
+    </div>
+    <a href="/calendars/new">New Calendar</a>
+    <button>Habit</button>
+    <button>Event</button>
+</body>
+</html>

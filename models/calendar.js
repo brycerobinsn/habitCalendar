@@ -43,18 +43,19 @@ const calendarSchema = new Schema (
             ref: 'User'
         },
         currentMonth: {
-            type: Date,
+            type: String,
             default: function(){
-                return month
+                const month = ['January','February','March','April','May','June','July','August','September','October','November','December']
+                date = new Date()
+                return month[date.getMonth()]
             }
         },
         currentDay: {
-            type: Date,
+            type: Number,
             default: function(){
                 date = new Date().getDate()
                 return date
             }
-
         },
         daysInMonth: {
             type: Number,
@@ -70,6 +71,7 @@ const calendarSchema = new Schema (
                 return padding
             }
         },
+
         habits: {
             type: Schema.Types.ObjectId,
             ref: 'Habit'
