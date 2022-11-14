@@ -1,4 +1,3 @@
-const habit = require('../models/habit');
 const Habit = require('../models/habit')
 
 module.exports = {
@@ -13,7 +12,6 @@ module.exports = {
 function update(req, res){
     // req.body.id = req.params.id; 
     req.body.done = req.body.done === 'on'
-    console.log(`req.body`)
     Habit.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, habit) => {
         console.log(`updated to ${req.body.title}`)
         if(err) return res.redirect('/habits')

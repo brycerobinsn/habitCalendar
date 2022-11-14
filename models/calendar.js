@@ -1,21 +1,7 @@
 const mongoose = require('mongoose');
+const calendars = require('../controllers/calendars');
 const Schema = mongoose.Schema;
 
-const habitSchema = new Schema({
-    title: {
-        type: String,
-        required: true
-    },
-    details: String,
-    done:{
-        type: Boolean,
-        default: false
-    }, 
-    streak: {
-        type: Number,
-        default: 0
-    },
-})
 // const eventSchema = new Schema (
 //     {
 //         title:{
@@ -34,18 +20,15 @@ const habitSchema = new Schema({
 //         }         
 //     }
 // )
-// const calendarSchema = new Schema (
-//     {
-//         title: String,
-//         month: Date,
-//         day: Date,
-//         today: function(){
-//             return new Date()
-//         }
-//     },
-//     {
-//         timestamps: true
-//     }
-// )
+const calendarSchema = new Schema (
+    {
+        title: String,
+        month: Date,
+        day: Date,
+    },
+    {
+        timestamps: true
+    }
+)
 
-module.exports = mongoose.model('Habit', habitSchema)
+module.exports = mongoose.model('Calendar', calendarSchema)

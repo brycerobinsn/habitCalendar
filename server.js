@@ -13,7 +13,9 @@ require("./config/passport");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-var habitsRouter = require("./routes/habits")
+var habitsRouter = require("./routes/habits");
+var calendarsRouter = require('./routes/calendars');
+
 
 var app = express();
 
@@ -50,6 +52,7 @@ app.use(function (req, res, next) {
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/habits", habitsRouter);
+app.use("/calendars", calendarsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

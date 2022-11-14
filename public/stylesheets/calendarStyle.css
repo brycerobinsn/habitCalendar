@@ -1,0 +1,32 @@
+body{
+    font-family: Helvetica;
+    color: #424748;
+}
+.header {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .container {
+    width: 80%;
+    height: 80%;
+    
+  }
+  .date {
+    justify-content: space-evenly;
+    text-align: right;
+    border: 3px solid black;
+    height: 100px;
+  }
+  #dates {
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    grid-template-rows: repeat(6,1fr);
+    width: 100%;
+  }
+  .day {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 100%;
+    border: 1px solid red;
+  }
