@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 
 const weekdays = ['Sunday','Monday', 'Tuesday', 'Wednesday', 'Thursday','Friday','Saturday']
 const dt = new Date()
-const day = dt.getDay()
 const month = dt.getMonth()
 const year = dt.getFullYear()
 const firstDayofMonth = new Date(year, month, 1)
@@ -35,18 +34,24 @@ const dateString = firstDayofMonth.toLocaleDateString('en-us', {
 // )
 const calendarSchema = new Schema (
     {
-        title: String,
+        title: {
+            type: String,
+            default: 'Calendar'
+        },
+        user: {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        },
         currentMonth: {
             type: Date,
             default: function(){
-                date = new Date().getMonth()
-                return date
+                return month
             }
         },
         currentDay: {
             type: Date,
             default: function(){
-                date = new Date().getDay()
+                date = new Date().getDate()
                 return date
             }
 
@@ -58,9 +63,18 @@ const calendarSchema = new Schema (
                 return monthDays
             }
         },
-        dateString: {
-            
+        paddingDays: {
+            type: Number,
+            default: function(){
+                const padding = weekdays.indexOf(dateString.split(', ')[0])
+                return padding
+            }
+        },
+        habits: {
+            type: Schema.Types.ObjectId,
+            ref: 'Habit'
         }
+        
 
     },
     {

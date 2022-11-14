@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='/stylesheets/calendarStyle.css' />
-    <title>Calendar</title>
+    <title><%= title %> </title>
 </head>
 <body>
     <nav>
@@ -22,10 +22,7 @@
     <h1>Calendar</h1>
     <div class="container">
         <div class="header">
-            <button id="lastMonth">&larr;</button>
-            <div class="currentMonth"></div>
-            <button id="nextMonth">&rarr;</button>
-
+            <div class="currentMonth"><%= calendars.currentMonth %> </div>
         </div>
         <div class="day">
             <div class="day">Sunday</div>
@@ -81,6 +78,7 @@
             <div class="date">42</div>
         </div>
     </div>
+    <a href="/calendars/new">New Calendar</a>
     <button>Habit</button>
     <button>Event</button>
 </body>
